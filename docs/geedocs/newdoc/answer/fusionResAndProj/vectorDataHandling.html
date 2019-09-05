@@ -7,20 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Vector data handling &#8212; Google Earth Enterprise 5.3.2 documentation</title>
-    <link rel="stylesheet" href="../../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/bizstyle.js"></script>
+    <link rel="stylesheet" href="../../static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../static/jquery.js"></script>
+    <script type="text/javascript" src="../../static/underscore.js"></script>
+    <script type="text/javascript" src="../../static/doctools.js"></script>
+    <script type="text/javascript" src="../../static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Google Maps raster background" href="googleMapsRasterBg.html" />
     <link rel="prev" title="Add .kip imagery" href="addKipImagery.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script type="text/javascript" src="static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -67,7 +67,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p><a class="reference internal" href="../../_images/googlelogo_color_260x88dp2.png"><img alt="Google logo" src="../../_images/googlelogo_color_260x88dp2.png" style="width: 130px; height: 44px;" /></a></p>
+  <p><a class="reference internal" href="../../images/googlelogo_color_260x88dp2.png"><img alt="Google logo" src="../../images/googlelogo_color_260x88dp2.png" style="width: 130px; height: 44px;" /></a></p>
 <div class="section" id="vector-data-handling">
 <h1>Vector data handling<a class="headerlink" href="#vector-data-handling" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
@@ -105,31 +105,31 @@ incorrect.</li>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><img alt="Self-intersecting polygons" src="../../_images/2913100_polygons.png" /></td>
+<tr class="row-even"><td><img alt="Self-intersecting polygons" src="../../images/2913100_polygons.png" /></td>
 <td>Self-intersecting polygon cycles. For example, “bow tie” figures.</td>
 <td>Fusion might skip or might not process correctly.</td>
 </tr>
-<tr class="row-odd"><td><img alt="Crossing cycles" src="../../_images/2907882_cycles.png" /></td>
+<tr class="row-odd"><td><img alt="Crossing cycles" src="../../images/2907882_cycles.png" /></td>
 <td>Polygon cycles that are not properly nested. For example, an inner cycle that is partly outside the outer cycle, or cycles that cross each other within a single polygon.</td>
 <td>Fusion might skip or might not process correctly.</td>
 </tr>
-<tr class="row-even"><td><img alt="Touching vertices" src="../../_images/2907976_vertices.png" /></td>
+<tr class="row-even"><td><img alt="Touching vertices" src="../../images/2907976_vertices.png" /></td>
 <td>Fusion allows polygon cycles with touching vertices. For example, outer cycle or inner cycle vertices that touch each other.</td>
 <td>This geometry is valid. Fusion processes correctly.</td>
 </tr>
-<tr class="row-odd"><td><img alt="Identical coordinates" src="../../_images/2907978_coordinates.png" /></td>
+<tr class="row-odd"><td><img alt="Identical coordinates" src="../../images/2907978_coordinates.png" /></td>
 <td>Polygon cycle linestrings that have consecutive points within an XY tolerance that is equal to or less than 0.0003m.</td>
 <td>Fusion removes the duplicate vertices.</td>
 </tr>
-<tr class="row-even"><td><img alt="Spike" src="../../_images/2907886_spike.png" /></td>
+<tr class="row-even"><td><img alt="Spike" src="../../images/2907886_spike.png" /></td>
 <td>Polygon cycles with “spikes.“ A spike is defined as an angle that is equal to or less than 3.15e-3 radians.</td>
 <td>Fusion removes the spike and merges the edges.</td>
 </tr>
-<tr class="row-odd"><td><img alt="Gore" src="../../_images/2907980_gore.png" /></td>
+<tr class="row-odd"><td><img alt="Gore" src="../../images/2907980_gore.png" /></td>
 <td>Polygon cycles with “gores.” A gore is defined as an angle that is equal to or less than 3.15e-3 radians.</td>
 <td>Fusion removes the gore and merges the edges.</td>
 </tr>
-<tr class="row-even"><td><img alt="Zero area" src="../../_images/2907982_zero_area.png" /></td>
+<tr class="row-even"><td><img alt="Zero area" src="../../images/2907982_zero_area.png" /></td>
 <td>Polygon cycles with zero area. If the polygon is a triangle with an angle that is less than 3.15e-3 radians, Fusion treats it as a spike and removes it. After the spike is removed, the result is a polygon with zero area.</td>
 <td>Fusion removes the polygon with zero area.</td>
 </tr>
