@@ -375,10 +375,10 @@ Command reference
          Cutter, so although it provides security if you try to launch
          the Cutter from the Admin console Settings menu, it does not
          block direct access to the Cutter via the URL. If you need
-         Cutter security, you must add it separately. See :doc:`GEE
-         Server security <173056>`.
+         Cutter security, you must add it separately."ay$ See :doc:`GEE
+         Server security <../geeServerConfigAndSecurity/ports>`.
 
-      See :doc:`3230777`.
+      See :doc:`../geeServerConfigAndSecurity/ports`
 
       .. rubric:: Example
 
@@ -1536,8 +1536,39 @@ Command reference
       |                       |                       | HTTP server           |
       |                       |                       | configuration files   |
       |                       |                       | are set up correctly, |
-      |                       |                       | see :doc:`6080928`.   |
+      |                       |                       | see :doc:`../geeServer|
+      |                       |                       |ConfigAndSecurity/confi|
+      |                       |                       |gureGeeServer5.1.0_SSL_|
+      |                       |                       |HTTPS`.                |
       +-----------------------+-----------------------+-----------------------+
+      ../geeServerConfigAndSecurity/configureGeeServer5.1.0_SSL_HTTPS
+
+      .. list-table:: Title
+         :widths: 15 15 70
+         :header-rows: 1
+         * - addvh option
+           - Required/Optional
+           - Description
+         * - --vhurl url
+           - Optional
+           - The vhurl specifies the location of the virtual host. It must match the corresponding server-side virtual host configuration. If vhurl is omitted, it will be set to http://yourserver.d omain/vh_name. There are three ways to specify the vhurl:
+
+Location-based URL, such as /private_ge. For example, if the entire URL is ``http://www.company.com/private_ge``,
+you enter /private_ge.
+
+Note: Google recommends that you use the _ge and _map naming convention to make it easier to distinguish between virtual host types.
+
+Port-based URL, such as:
+
+http://www.company.com:1234
+
+The entire URL, including protocol, server name, path (if applicable), and port are required.
+Name-based URL, such as:
+http://corp.company.com
+
+For this type of specification, you must modify your DNS appropriately for the virtual host.
+
+After you use this command, you must create a configuration file for the new virtual host.
 
       .. rubric:: Delete virtual hosts
 

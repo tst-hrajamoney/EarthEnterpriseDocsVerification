@@ -1,5 +1,9 @@
 #! /usr/bin/env python
- 
+
+# This script is adapted from https://github.com/michaeljones/sphinx-to-github
+# It renames any top level folders which start with an underscore and edits any
+# references to them within the html files.
+
 from optparse import OptionParser
 
 import os
@@ -207,10 +211,10 @@ class LayoutFactory(object):
 
         if self.force:
             remove = self.operations_factory.create_remover(self.file_helper.exists, self.dir_helper.rmtree)
-            renamer = self.operations_factory.create_force_rename(renamer, remove) 
+            renamer = self.operations_factory.create_force_rename(renamer, remove)
 
         if self.verbose:
-            renamer = self.operations_factory.create_verbose_rename(renamer, self.output_stream) 
+            renamer = self.operations_factory.create_verbose_rename(renamer, self.output_stream)
 
         # Build list of directories to process
         directories = [d for d in contents if self.is_underscore_dir(path, d)]
@@ -357,7 +361,7 @@ def main(args):
             shutil.move,
             os.path.exists
             )
-    
+
     operations_factory = OperationsFactory()
     handler_factory = HandlerFactory()
 
@@ -373,7 +377,7 @@ def main(args):
 
     layout = layout_factory.create_layout(path)
     layout.process()
-    
+
 
 
 if __name__ == "__main__":
