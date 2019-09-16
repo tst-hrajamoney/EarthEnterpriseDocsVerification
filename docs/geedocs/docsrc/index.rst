@@ -12,24 +12,24 @@ Google Earth Enterprise Documentation Version |release|
 
    ./answer/fusionTutorial
 
-   ./answer/3468016
+   ./answer/installGEE
 
    ./answer/fusionAdministration
 
    ./answer/fusionResAndProj
 
-   ./answer/3468004
+   ./answer/geeServerAdmin
 
    ./answer/geeServerConfigAndSecurity
 
    ./answer/googleEarthEnterpriseClient
 
-   ./answer/4580164
+   ./answer/portable
 
    ./answer/developers
 
-   ./answer/6121524
+   ./answer/troubleshooting
 
-   ./answer/7160009
+   ./answer/releaseNotes
 
-   ./answer/2987876
+   ./answer/legal
