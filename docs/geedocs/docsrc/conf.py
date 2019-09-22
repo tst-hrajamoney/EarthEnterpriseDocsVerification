@@ -51,6 +51,8 @@ release = gee_version_number
 # ones.
 extensions = [
     'sphinx.ext.githubpages',
+   'sphinxprettysearchresults',
+]
 ]
 
 # Add any paths that contain templates here, relative to this directory.
