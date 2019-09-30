@@ -16,5 +16,3 @@
   stability: latest stable
 - version: 5.3.2
   stability: unstable
-- version: newdoc
-  stability: testing

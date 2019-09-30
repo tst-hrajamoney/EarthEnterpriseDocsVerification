@@ -1,103 +1,77 @@
-|Google logo|
 
-=============================
 Verifying and troubleshooting
-=============================
 
-.. container::
+Verifying that the System Manager is Running
 
-   .. container:: content
+Troubleshooting a Failed System Manager
 
-      -  :ref:`Verifying that the System Manager is Running <Verifying_System_Manager_Running>`
-      -  :ref:`Troubleshooting a Failed System
-         Manager <Troubleshooting_Failed_System_Manager>`
-      -  :ref:`Restarting the Server <Restarting_System_Manager>`
+Restarting the Server
 
-      --------------
+-[ Verifying That the System Manager Is Running ]-
 
-      .. _Verifying_System_Manager_Running:
-      .. rubric:: Verifying That the System Manager Is Running
+Because a properly running system manager is critical to using Google
+Earth Enterprise Fusion, as well as for converting your source data to
+Google Earth Enterprise Fusion assets, verify that the system manager
+is running after the initial installation of Google Earth Enterprise
+Fusion and whenever you encounter problems building assets.
 
-      Because a properly running system manager is critical to using
-      Google Earth Enterprise Fusion, as well as for converting your
-      source data to Google Earth Enterprise Fusion assets, verify that
-      the system manager is running after the initial installation of
-      Google Earth Enterprise Fusion and whenever you encounter problems
-      building assets.
+To verify that the system manager is running, enter the following
+command at a shell prompt:
 
-      To verify that the system manager is running, enter the following
-      command at a shell prompt:
+"getop"
 
-      ``getop``
-      A list of running processes appears. Two processes appear on the
-      list:
+A list of running processes appears. Two processes appear on the list:
 
-      -  ``gesystemmanager``
+gesystemmanager  This process is necessary to configure or build
+resources, projects, and databases with Google Earth Enterprise
+Fusion. If this process appears on the list, Google Earth Enterprise
+Fusion is running properly.  If you do not see this process on the
+list, follow the troubleshooting suggestions in the Troubleshooting
+section to correct it.
 
-         This process is necessary to configure or build resources,
-         projects, and databases with Google Earth Enterprise Fusion. If
-         this process appears on the list, Google Earth Enterprise
-         Fusion is running properly.
+geresourceprovider  This process manages the workstation resources on
+the behalf of the system manager. It also monitors free disk space on
+the volumes for any connected workstations.  If you see a connection
+refused message, see the Troubleshooting section.
 
-         If you do not see this process on the list, follow the
-         troubleshooting suggestions in the
-         :ref:`Troubleshooting <Troubleshooting_Failed_System_Manager>` section to
-         correct it.
+-[ Troubleshooting a Failed System Manager ]-
 
-      -  ``geresourceprovider``
+If the Google Earth Enterprise Fusion system manager fails to run, you
+can try stopping and restarting the it, which resolves most minor
+problems.
 
-         This process manages the workstation resources on the behalf of
-         the system manager. It also monitors free disk space on the
-         volumes for any connected workstations.
+-[ Restarting the system manager ]-
 
-         If you see a ``connection refused`` message, see the
-         :ref:`Troubleshooting <Troubleshooting_Failed_System_Manager>` section.
+Log in as root.
 
-      --------------
+Stop the system manager:  /etc/init.d/gefusion stop
 
-      .. _Troubleshooting_Failed_System_Manager:
-      .. rubric:: Troubleshooting a Failed System Manager
+Start the system manager:  /etc/init.d/gefusion start
 
-      If the Google Earth Enterprise Fusion system manager fails to run,
-      you can try stopping and restarting the it, which resolves most
-      minor problems.
+If you are still having problems starting the system manager after
+stopping and restarting the system manager, you can view the log file
+for the system manager to see what errors have been reported. The log
+file is located in:
 
-      .. _Restarting_System_Manager:
-      .. rubric:: Restarting the system manager
+"/var/opt/google/log/gesystemmanager.log"
 
-      #. Log in as root.
-      #. Stop the system manager:
-         ``/etc/init.d/gefusion stop``
-      #. Start the system manager:
-         ``/etc/init.d/gefusion start``
+Any errors are listed after the
 
-      If you are still having problems starting the system manager after
-      stopping and restarting the system manager, you can view the log
-      file for the system manager to see what errors have been reported.
-      The log file is located in:
+Started
 
-      ``/var/opt/google/log/gesystemmanager.log``
-      Any errors are listed after the **Started** notice, which appears
-      in the log for each time you started the system manager.
+ notice, which appears in the log for each time you started the system
+manager.
 
-      .. note::
+Note: If you see a "Connection Refused" message when running the
+  "getop" command, but do not see any error messages in the log file,
+  ensure that the log directory is writable by Google Earth Enterprise
+  Fusion users.
 
-         **Note:** If you see a ``Connection Refused`` message when
-         running the ``getop`` command, but do not see any error
-         messages in the log file, ensure that the log directory is
-         writable by Google Earth Enterprise Fusion users.
+Likewise, if Google Earth Enterprise Server fails to run, you can try
+stopping and restarting it, which resolves most problems.
 
-      Likewise, if Google Earth Enterprise Server fails to run, you can
-      try stopping and restarting it, which resolves most problems.
+-[ Restarting the Server ]-
 
-      --------------
+Log in as root.
 
-      .. rubric:: Restarting the Server
-
-      #. Log in as root.
-      #. Stop and restart the server.
-      \ ``/etc/init.d/geserver restart``
-
-.. |Google logo| image:: ../../art/common/googlelogo_color_260x88dp.png
-   :width: 130px
-   :height: 44px
+Stop and restart the server.  /etc/init.d/geserver restart

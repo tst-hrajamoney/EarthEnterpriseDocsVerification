@@ -1,7 +1,8 @@
 # Build Instructions for Earth Enterprise Documentation
 
 OpenGEE Documentation from Release 5.3.2 is in rst(restructured text format).
-Previously it was in html. Now we update the rst and generate html using Sphinx.
+Previously it was in html. To update Documentation, update the rst and generate
+html using Sphinx.
 
 ## Prerequisites:
 
@@ -10,6 +11,7 @@ To build Documentation you need to install Sphinx:
 ```bash
 sudo apt install python-pip
 sudo pip install sphinx==1.7.5
+sudo pip install sphinxprettysearchresults
 ```
 
 ## How documentation is Organized:
@@ -106,7 +108,7 @@ branch and master.
         Automatic merge failed; fix conflicts and then commit the result.
       ```
 
-      There will be a merge conflict in index.rst.
+      There was a merge conflict in index.rst.
 
       ```bash
       <<<<<<< HEAD
@@ -128,6 +130,12 @@ branch and master.
 
       Keep the change, which has |release| instead of 5.3.3. This will help
       update the documentation based on the current opengee release.
+
+      Merges may become tricky if there are conflicts in the generated html.
+      if for example, we are bring 5.3.2 changes in to master we will be having 5.3.2
+      html changes. you can keep the change in 5.3.2 branch while resolving conflicts.
+      Resolve conflicts in rst and generate html for master which will update 5.3.3
+      html.
 
 
    d) Commit 5.3.2 merge:
@@ -159,3 +167,9 @@ branch and master.
     ```
 
    f) Now you can push and create a PR for these two commits
+
+Merges may become tricky if there are conflicts in the generated html.
+If for example, we are bring 5.3.2 changes in to master we will be having 5.3.2
+html changes. you can keep the change in 5.3.2 branch while resolving conflicts.
+Resolve conflicts in rst and generate html for master which will update 5.3.3
+html.
